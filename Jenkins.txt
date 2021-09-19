@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    
+    
+    environment {PROJECT_NAME = 'pr_name'
+                OWNER_NAME = 'o_name'
+    }
+    
+    stages {
+        stage('1-Build') {
+            steps {
+                echo 'Start-Build'
+                echo 'Building...'
+                echo 'End'
+            }
+        }
+        stage('2-Test') {
+            steps {
+                echo 'Start-Testing'
+                echo 'Testing...'
+                echo "Project name is ${PROJECT_NAME}"
+                echo "Owner name is ${OWNER_NAME}"
+                echo 'End'
+            }
+        }
+        stage('3-Deploy') {
+            steps {
+                echo 'Start-Testing'
+                echo 'Deploying...'
+                echo 'End'
+                sh 'python3 --version'
+            }
+        }
+    }
+}
